@@ -29,6 +29,10 @@ class RpnCalc
     @pilha.push @pilha.pop / temp
   end
 
+  def pow
+    temp = @pilha.pop
+    @pilha.push @pilha.pop**temp
+  end
 end
 
 def float?(num)
