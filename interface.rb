@@ -41,8 +41,7 @@ class InterfaceCalculadora
     when "comma"
       @buffer.concat '.'
     when "enter"
-      @calculadora.push @buffer.to_f
-      @buffer = ""
+      enter
       print
     when "del"
       @buffer.chop!
@@ -51,9 +50,8 @@ class InterfaceCalculadora
         @calculadora.div
         print
       else
-        @calculadora.push @buffer.to_f
+        enter
         @calculadora.div
-        @buffer = ""
         print
       end
     when "plus"
@@ -61,9 +59,8 @@ class InterfaceCalculadora
         @calculadora.sum
         print
       else
-        @calculadora.push @buffer.to_f
+        enter 
         @calculadora.sum
-        @buffer = ""
         print
       end
     when "minus"
@@ -71,9 +68,8 @@ class InterfaceCalculadora
         @calculadora.sub
         print
       else
-        @calculadora.push @buffer.to_f
+        enter
         @calculadora.sub
-        @buffer = ""
         print
       end
     when "times"
@@ -81,9 +77,8 @@ class InterfaceCalculadora
         @calculadora.mul
         print
       else
-        @calculadora.push @buffer.to_f
+        enter
         @calculadora.mul
-        @buffer = ""
         print
       end
     when "pow"
@@ -91,9 +86,8 @@ class InterfaceCalculadora
         @calculadora.pow
         print
       else
-        @calculadora.push @buffer.to_f
+        enter
         @calculadora.pow
-        @buffer = ""
         print
       end
     when "plus_minus"
@@ -101,9 +95,8 @@ class InterfaceCalculadora
         @calculadora.plus_minus
         print
       else
-        @calculadora.push @buffer.to_f
+        enter
         @calculadora.plus_minus
-        @buffer = ""
         print
       end
     when "drop"
@@ -115,6 +108,11 @@ class InterfaceCalculadora
     when "b1", "b2", "b3", "b4", "b5", "b6", "b7", "b8", "b9", "b0", "comma", "del"
       print
     end
+  end
+
+  def enter
+    @calculadora.push @buffer.to_f
+    @buffer = ""
   end
 
   def print
