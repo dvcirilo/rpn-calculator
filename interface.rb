@@ -100,7 +100,12 @@ class InterfaceCalculadora
         print
       end
     when "drop"
-      @calculadora.pilha.pop
+      if @calculadora.pilha.length == 3
+        @calculadora.pilha.pop
+        @calculadora.pilha.insert(0,0.0)
+      else
+        @calculadora.pilha.pop
+      end
       print
     end
 
